@@ -3,7 +3,7 @@ services:
   web:
     container_name: django-web
     build: .
-    command: "bash -c 'echo wait postgres && sleep 15s && python manage.py migrate && python manage.py runserver 0.0.0.0:8000'"
+    command: "bash -c 'echo wait postgres && sleep 15s && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000'"
     volumes:
       - ./src:/app
     ports:
