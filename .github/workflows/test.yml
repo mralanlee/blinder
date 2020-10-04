@@ -26,6 +26,9 @@ jobs:
       - name: 'Application up'
         run: cd api && docker-compose up -d
       
+      - name: 'Docker logs'
+        run: "cd api && sleep 10s && docker-compose logs" 
+      
       - name: 'Wait for application up'
         run: docker exec django-web dockerize -timeout=400s -wait=http://localhost:8000
 
