@@ -21,8 +21,8 @@ Go to api folder
 cd api
 ```
 
-Create docker-compose.override.yml for configure database credenteials
-
+Create docker-compose.override.yml for configure database credenteials(optional)
+ 
 ```
 version: '3.5'
 services: 

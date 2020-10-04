@@ -3,7 +3,7 @@ services:
   web:
     container_name: django-web
     build: .
-    command: "bash -c 'python manage.py migrate && python manage.py runserver 0.0.0.0:8000'"
+    command: "bash -c 'echo wait postgres && sleep 15s && python manage.py migrate && python manage.py runserver 0.0.0.0:8000'"
     volumes:
       - ./src:/app
     ports:
@@ -11,7 +11,7 @@ services:
     env_file:
       - ./src/.env
     depends_on: 
-      - postgres
+      - "postgres"
   postgres:
     container_name: django-postgres
     image: postgres:12.4
@@ -19,6 +19,10 @@ services:
       - 5432
     volumes: 
       - db-data:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=blinder
 
 volumes: 
   db-data:
