@@ -23,9 +23,6 @@ jobs:
       - name: 'Copy env'
         run: cp api/src/.env.example  api/src/.env
 
-      - name: 'Copy docker-compose.override'
-        run : cp api/docker-compose.override.example.yml api/docker-compose.override.yml
-
       - name: 'Application up'
         run: cd api && docker-compose up -d
       
