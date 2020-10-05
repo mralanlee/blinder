@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path
 
 from users.views import register
+from descriptions.views import create_description
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/register/', register, name='register')
+    path('api/register/', register, name='register'),
+    path('api/descriptions', create_description, name='descriptions.create')
 ]
